@@ -11,9 +11,8 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-	crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
 	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -38,6 +37,10 @@
 a:hover {
 	text-decoration: none;
 }
+
+img.image{
+	width: 70px;
+}
 </style>
 </head>
 <body>
@@ -57,10 +60,10 @@ a:hover {
 				<div class="card">
 					<div class="card-header text-center">Danh mục</div>
 					<div class="card-body">
-						<ul class="list-group text-center">
+						<ul class="list-group text-center" id="index-list">
 							<li class="list-group-item"><a
 								href="${ admin }/phonetype/index">Hãng</a></li>
-							<li class="list-group-item"><a href="#">Điện thoại</a></li>
+							<li class="list-group-item"><a href="${ admin }/phone/index">Điện thoại</a></li>
 							<li class="list-group-item"><a href="#">Đơn hàng</a></li>
 						</ul>
 					</div>
@@ -74,7 +77,5 @@ a:hover {
 		</div>
 	</div>
 </body>
-<script>
-	
-</script>
+
 </html>

@@ -147,7 +147,7 @@ public class DemoAppConfig implements WebMvcConfigurer {
 	public CommonsMultipartResolver multipartResolver() {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
 		// max size of file upload
-		multipartResolver.setMaxUploadSize(5 * 1024 * 1024);
+		multipartResolver.setMaxUploadSize(5 * 1024 * 1024 * 20);
 		return multipartResolver;
 	}
 }

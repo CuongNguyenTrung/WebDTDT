@@ -20,16 +20,15 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
-
 <meta charset="UTF-8">
-<title>Hãng</title>
+<title>Điện thoại</title>
 
 </head>
 <body>
 	<c:set value="${ pageContext.request.contextPath }" var="c" />
 	<div class="mb-3 d-flex">
 		<div class="mr-auto">
-			<a href="create" class="btn btn-primary">Tạo hãng mới</a>
+			<a href="create" class="btn btn-primary">Tạo Điện thoại</a>
 		</div>
 
 		<c:if test="${ message != null }">
@@ -38,31 +37,28 @@
 
 	</div>
 	<div class="card">
-		<div class="card-header font-weight-bold">Hãng</div>
+		<div class="card-header font-weight-bold">Điện thoại</div>
 		<div class="card-body">
 			<c:if test="${ fn:length(list) == 0 }">
-				<div class="py-2 text-center">Chưa có hãng nào!</div>
+				<div class="py-2 text-center">Chưa có điện thoại nào nào!</div>
 			</c:if>
 			<c:if test="${ fn:length(list) != 0 }">
 				<table class="table table-striped text-center">
 					<tr>
-						<th>Tên hãng</th>
-						<th>Ảnh</th>
+						<th>Tên điện thoại</th>
+						<th>Hãng</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
 					</tr>
 					<c:forEach items="${ list }" var="item">
 						<tr>
 							<td>${ item.name }</td>
-							<td><img
-								src="${ pageContext.request.contextPath }/resources/${ item.image }"
-								style="height: 40px;"></td>
-							<td><a href="${ item.id }" class="btn btn-warning"
-								style="color: white;">Sửa </a></td>
+							<td>${ item.type.name }</td>
 							<td>
-								<button onclick="handleDelete(`${ item.id }`)"
-									class="btn btn-dark">Xóa</button>
+								<a href="${ item.id }" class="btn btn-warning" style="color:white;">Sửa</a>
 							</td>
+							<td><button onclick="handleDelete(`${ item.id }`)"
+									class="btn btn-dark">Xóa</button></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -76,14 +72,14 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">Xóa hãng</h5>
+					<h5 class="modal-title">Xóa điện thoại</h5>
 					<button type="button" class="close" data-dismiss="modal"
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div class="modal-body">
-					<p>Bạn muốn xóa hãng không?</p>
+					<p>Bạn muốn xóa điện thoại này không?</p>
 				</div>
 				<div class="modal-footer">
 					<form id="form-delete" method="post">
