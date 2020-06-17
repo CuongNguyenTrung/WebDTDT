@@ -105,8 +105,7 @@ public class PhoneController {
 	}
 
 	@PostMapping("/update")
-	@ResponseBody
-	public String update(@ModelAttribute("dataPhone") DataPhone dataPhone) {
+	public String update(@ModelAttribute("dataPhone") DataPhone dataPhone, RedirectAttributes redirect) {
 		// Handle Image
 		MultipartFile file = dataPhone.getImage();
 		FileUtils fileUtils = new FileUtils(file, dir);
@@ -145,9 +144,9 @@ public class PhoneController {
 				phone.addPhoneImage(img);
 			}
 		}
-	
 		phoneService.update(phone);
-		return imageString;
+		redirect.addFlashAttribute("message", "Cập nhật thành công điện thoại");
+		return "redirect:index";
 	}
 
 	@GetMapping("/test")

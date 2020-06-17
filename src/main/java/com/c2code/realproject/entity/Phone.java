@@ -16,6 +16,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.c2code.realproject.utils.MoneyUtils;
+
 @Entity
 @Table(name = "phone")
 public class Phone {
@@ -124,7 +126,12 @@ public class Phone {
 		this.oldprice = oldprice;
 	}
 
+	public String getOldpricestring() {
+		return MoneyUtils.money(oldprice);
+	}
 	
-
+	public String getNewpricestring() {
+		return MoneyUtils.money(newprice);
+	}
 	
 }

@@ -46,13 +46,17 @@
 				<table class="table table-striped text-center">
 					<tr>
 						<th>Tên điện thoại</th>
+						<th>Ảnh</th>
 						<th>Hãng</th>
+						<th>Giá</th>
 						<th>Sửa</th>
 						<th>Xóa</th>
 					</tr>
 					<c:forEach items="${ list }" var="item">
 						<tr>
 							<td>${ item.name }</td>
+							<td><img alt="" src="${ c }/resources/${ item.image }" class="image"></td>
+							<th>${ item.newpricestring }</th>
 							<td>${ item.type.name }</td>
 							<td>
 								<a href="${ item.id }" class="btn btn-warning" style="color:white;">Sửa</a>

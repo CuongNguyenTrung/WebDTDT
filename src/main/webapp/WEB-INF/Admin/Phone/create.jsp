@@ -94,28 +94,32 @@
 				<c:forEach items="${ dataPhone.phoneImages }" var="phoneImage"
 					varStatus="index">
 					<div class="form-group mb-2">
-						<c:if test="${ dataPhone.phone == null }">
-							<label>Ảnh ( Màu ${ colors[index.index].name } )</label>
-							<input type="file" name="phoneImages[${ phoneImage.key }]"
-								class="form-control" multiple="multiple">
-						</c:if>
-						<c:if test="${ dataPhone.phone != null }">
-							<label>Ảnh ( Màu ${ colors[index.index].name } )</label>
-							<input type="file" name="newPhoneImages[${ phoneImage.key }]"
-								class="form-control" multiple="multiple">
-							<c:forEach items="${ dataPhone.stringPhoneImages }" var="pi">
-								<c:if test="${ pi.key == phoneImage.key && pi.value != null}">
-									<c:forEach items="${ pi.value }" var="linkImage">
-										<span class="divimg${ linkImage.id }"> <input
-											type="checkbox" id="${ linkImage.id }"> <img alt=""
-											src="${ c }/resources/${linkImage.image}" class="image">
-										</span>
-									</c:forEach>
-									<button value="${ pi.key }"
-										class="deleteImages btn btn-dark btn-xs">Xóa</button>
+						<c:choose>
+							<c:when test="${ link == 'update' }">
+								<label>Ảnh ( Màu ${ colors[index.index].name } )</label>
+								<input type="file" name="newPhoneImages[${ phoneImage.key }]"
+									class="form-control" multiple="multiple">
+								<c:forEach items="${ dataPhone.stringPhoneImages }" var="pi">
+									<c:if test="${ pi.key == phoneImage.key && pi.value != null}">
+										<c:forEach items="${ pi.value }" var="linkImage">
+											<span class="divimg${ linkImage.id }"> <input
+												type="checkbox" id="${ linkImage.id }"> <img alt=""
+												src="${ c }/resources/${linkImage.image}" class="image">
+											</span>
+										</c:forEach>
+										<button value="${ pi.key }"
+											class="deleteImages btn btn-dark btn-xs">Xóa</button>
+									</c:if>
+								</c:forEach>
+							</c:when>
+							<c:otherwise>
+								<c:if test="${ link == 'save' }">
+									<label>Ảnh ( Màu ${ colors[index.index].name } )</label>
+									<input type="file" name="phoneImages[${ phoneImage.key }]"
+										class="form-control" multiple="multiple">
 								</c:if>
-							</c:forEach>
-						</c:if>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</c:forEach>
 				<div class="form-group">
