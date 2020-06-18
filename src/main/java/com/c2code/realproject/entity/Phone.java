@@ -134,4 +134,9 @@ public class Phone {
 		return MoneyUtils.money(newprice);
 	}
 	
-}
+	public String getPhonelink() {
+		String link = name;
+		link = link.replaceAll(" ", "-").toLowerCase();
+		return link;
+	}
+}	

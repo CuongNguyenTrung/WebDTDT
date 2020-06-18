@@ -5,6 +5,7 @@ import java.math.BigInteger;
 public class MoneyUtils {
 
 	public static String money(BigInteger money) {
+		if(money == null) return null;
 		StringBuilder stringBuilder = new StringBuilder(money.toString());
 		int i = stringBuilder.length();
 		while(i - 3 > 0) {

@@ -16,4 +16,9 @@ public class PhoneServiceImpl extends ServiceImpl<Phone> implements PhoneService
 		dao = phoneDAO;
 		this.phoneDAO = phoneDAO;
 	}
+
+	@Override
+	public Phone getPhoneBySlugName(String name) {
+		return phoneDAO.getPhoneBySlugName(name);
+	}
 }
