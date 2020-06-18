@@ -139,4 +139,18 @@ public class Phone {
 		link = link.replaceAll(" ", "-").toLowerCase();
 		return link;
 	}
+	
+	public BigInteger save() {
+		if(oldprice != null) {
+			return oldprice.subtract(newprice);
+		}
+		return null;
+	}
+	
+	public String getSaving() {
+		if(oldprice != null) {
+			return MoneyUtils.money(oldprice.subtract(newprice));
+		}
+		return null;
+	}
 }	

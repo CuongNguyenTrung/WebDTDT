@@ -124,7 +124,7 @@
 				</div>
 				<div class="mt-4 text-center">
 					<form action="${ c }/gio-hang" method="post">
-						<input type="hidden" value="${ phone.id }">
+						<input type="hidden" value="${ phone.id }" name="item">
 						<button type="submit" class="btn btn-lg btn-warning btn-block" style="color:white">Mua ngay</button>
 					</form>
 				</div>
