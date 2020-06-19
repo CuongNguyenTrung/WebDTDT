@@ -17,6 +17,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.c2code.realproject.utils.MoneyUtils;
+
 @Entity
 @Table(name = "order_detail")
 public class OrderDetail {
@@ -92,5 +94,8 @@ public class OrderDetail {
 		this.phone = phone;
 	}
 	
+	public String getQuantitystring() {
+		return MoneyUtils.money(quantity);
+	}
 	
 }

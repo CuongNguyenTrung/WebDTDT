@@ -18,14 +18,15 @@ import com.c2code.realproject.service.OrderService;
 @RequestMapping("/admin/orderdetail")
 public class OrderDetailController {
 
+	private String path = "Admin/Order/";
+	
 	@Autowired
 	private OrderDetailService orderDetailService;
 	
 	@GetMapping("/{id}")
-	@ResponseBody
-	public List<OrderDetail> orderDetail(@PathVariable("id")int id, Model model) {
+	public String orderDetail(@PathVariable("id")int id, Model model) {
 		List<OrderDetail> orderDetails = orderDetailService.getOrderDetailsByOrderId(id);
 		model.addAttribute("orderDetails", orderDetails);
-		return orderDetails;
+		return path + "orderdetail";
 	}
 }

@@ -6,36 +6,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Đơn hàng</title>
+<title>Chi tiết</title>
 </head>
 <body>
-	<c:set value="${ pageContext.request.contextPath }" var="c"/>
+	<c:set value="${ pageContext.request.contextPath }" var="c" />
 	<div class="card">
 		<div class="card-header font-weight-bold">Đơn hàng</div>
 		<div class="card-body">
-			<c:if test="${ fn:length(orders) == 0 }">
+			<c:if test="${ fn:length(orderDetails) == 0 }">
 				<div class="py-2 text-center">Chưa có đơn hàng nào!</div>
 			</c:if>
-			<c:if test="${ fn:length(orders) != 0 }">
+			<c:if test="${ fn:length(orderDetails) != 0 }">
 				<table class="table table-striped text-center">
 					<tr>
-						<th>Tên người dùng</th>
-						<th>Số điện thoại</th>
-						<th>Yêu cầu</th>
+						<th>Điện thoại</th>
 						<th>Giá</th>
-						<th>Tiết kiệm</th>
-						<th>Thời gian tạo</th>
-						<th>Chi tiết</th>
+						<th>Số lượng</th>
+						<th>Thời gian đăng ký</th>
+
 					</tr>
-					<c:forEach items="${ orders }" var="item">
+					<c:forEach items="${ orderDetails }" var="item">
 						<tr>
-							<td>${ item.username }</td>
-							<td>${ item.sdt }</td>
-							<th>${ item.status }</th>
+							<td>
+								<div>
+									<img alt="" src="${ c}/resources/${ item.phone.image }"
+										style="width: 60px;">
+								</div>
+								<div>${ item.phone.name }</div>
+							</td>
 							<td>${ item.quantitystring }</td>
-							<td>${ item.savingstring }</td>
+							<td>${ item.amount }</td>
 							<td>${ item.createAt }</td>
-							<td><a class="btn btn-info" style="color:white;" href="${ c }/admin/orderdetail/${ item.id }">Chi tiết</a></td>
+							
 						</tr>
 					</c:forEach>
 				</table>
