@@ -38,9 +38,10 @@ public class OrderDetail {
 	private Phone phone;
 	
 	
-	@CreationTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
+	
+
 	@Column(name = "`create_at`")
+	@CreationTimestamp
 	private Date createAt;
 
 	public int getId() {

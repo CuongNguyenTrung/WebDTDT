@@ -46,6 +46,7 @@ img.image{
 <body>
 	<c:set value="${ pageContext.request.contextPath }" var="c" />
 	<c:set value="${ c }/admin" var="admin" />
+
 	<header id="header" class="navbar navbar-expand-lg navbar-dark">
 		<a href="#">Trang quản lý</a>
 		<div class="navbar-nav">
@@ -64,7 +65,7 @@ img.image{
 							<li class="list-group-item"><a
 								href="${ admin }/phonetype/index">Hãng</a></li>
 							<li class="list-group-item"><a href="${ admin }/phone/index">Điện thoại</a></li>
-							<li class="list-group-item"><a href="#">Đơn hàng</a></li>
+							<li class="list-group-item"><a href="${ admin }/order/index">Đơn hàng</a></li>
 						</ul>
 					</div>
 				</div>

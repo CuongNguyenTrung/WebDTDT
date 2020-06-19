@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import com.c2code.realproject.utils.MoneyUtils;
 
 @Entity
-@Table(name = "order")
+@Table(name = "`order`")
 public class Order {
 
 	@Id
@@ -36,16 +37,16 @@ public class Order {
 
 	private String status;
 
-	@OneToMany(mappedBy = "order")
+	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private List<OrderDetail> orderDetails = new ArrayList<>();
-	@CreationTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
+	
 	@Column(name = "`create_at`")
+	@CreationTimestamp
 	private Date createAt;
 
-	@UpdateTimestamp
-	@Temporal(TemporalType.TIMESTAMP)
+	
 	@Column(name = "`update_at`")
+	@UpdateTimestamp
 	private Date updateAt;
 
 	private BigInteger saving;
@@ -131,6 +132,21 @@ public class Order {
 		this.saving = saving;
 	}
 	
+	public BigInteger getTongtien() {
+		if(saving != null) {
+			return quantity.add(saving);
+		}
+		else return quantity;
+	}
+	
+	public String getTongtienstring() {
+		return MoneyUtils.money(getTongtien());
+	}
+	
+	public String getSavingstring() {
+		if(saving == null) return null;
+		return MoneyUtils.money(saving);
+	}
 	
 	
 }
