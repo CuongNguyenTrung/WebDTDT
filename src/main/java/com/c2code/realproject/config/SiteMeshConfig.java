@@ -12,6 +12,7 @@ public class SiteMeshConfig extends ConfigurableSiteMeshFilter {
 		// TODO Auto-generated method stub
 		builder.addDecoratorPath("/admin/*", "/WEB-INF/decorators/admin.jsp")
 		.addDecoratorPath("/dtdd", "/WEB-INF/decorators/dtdd.jsp")
+		.addDecoratorPath("/timkiem", "/WEB-INF/decorators/dtdd.jsp")
 		.addDecoratorPath("/dtdd/*", "/WEB-INF/decorators/dtdd.jsp")
 		.addDecoratorPath("/gio-hang", "/WEB-INF/decorators/dtdd.jsp");
 		

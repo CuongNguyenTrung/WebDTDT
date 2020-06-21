@@ -50,7 +50,9 @@ public class PhoneType {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
+	public String getLowername() {
+		return name.toLowerCase();
+	}
 	
 	
 }

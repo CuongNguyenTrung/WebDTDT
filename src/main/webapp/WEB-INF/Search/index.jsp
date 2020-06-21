@@ -10,18 +10,14 @@
 </head>
 <body>
 	<c:set value="${ pageContext.request.contextPath }" var="c"></c:set>
-	<div class="py-4">
-		<c:forEach items="${ phonetypes }" var="phonetype">
-			<a href="${ c }/dtdd/type/${ phonetype.lowername }" class="phonetype"> <img alt=""
-				src="${ c }/resources/${ phonetype.image }" class="label">
-			</a>
-		</c:forEach>
+	<div>
+		<a href="${ c }/dtdd">Trang chủ</a>
 	</div>
 	<hr>
 	<div class="py-4">
-		<div class="font-weight-bold">Điện thoại nổi bật nhất</div>
+		<div class="font-weight-bold">Điện thoại tìm kiếm "${ key }" ( ${ size } kết quả )</div>
 		<ul class="list-inline">
-			<c:forEach items="${ phone }" var="phone">
+			<c:forEach items="${ phones }" var="phone">
 				<div class="list-inline-item text-center py-4 ml-3">
 					<a href="${ c }/dtdd/${ phone.phonelink }"> <img alt=""
 						src="${ c }/resources/${ phone.image }"

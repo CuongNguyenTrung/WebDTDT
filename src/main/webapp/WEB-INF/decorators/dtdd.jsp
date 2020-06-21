@@ -35,15 +35,16 @@
 	color: black;
 }
 
-.label{
+.label {
 	height: 21px;
-
 }
-.phonetype{
+
+.phonetype {
 	border: 1px solid #eee;
 	padding: 9px;
 }
-.framephone{
+
+.framephone {
 	border: 1px solid #eee;
 }
 </style>
@@ -54,10 +55,12 @@
 	<header id="header" class="navbar navbar-expand-lg navbar-dark">
 		<div class="navbar-nav container">
 			<ul class="navbar-nav flex-row ml-4">
-				<li class="nav-item"><form class="form-inline">
-						<input class="form-control mr-sm-2" type="search"
-							placeholder="Search" aria-label="Search">
-						<button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+				<li class="nav-item"><form action="${ c }/timkiem"
+						class="form-inline">
+						<input class="form-control mr-sm-2" placeholder="Search"
+							aria-label="Search" name="key">
+						<button class="btn btn-info my-2 my-sm-0" type="submit">Tìm
+							kiếm</button>
 					</form></li>
 			</ul>
 		</div>
